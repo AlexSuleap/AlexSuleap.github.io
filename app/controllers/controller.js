@@ -87,8 +87,7 @@
         $scope.options = {
             showIcon: true,
             multipleSelect: false,
-            expandOnClick: true,
-            useTemplate: true,
+            expandOnClick: false
         }
     }
 
