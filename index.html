@@ -1,7 +1,164 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/dist/angular-tree-widget.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body ng-app="treeApp">
+    <div class="container page">
+        <div class="page-header">
+            <h1><i>Angular tree widget</i></h1>
+        </div>
+        <div class="row presentation">
+            <div class="col-sm-6 col-md-8">
+                <div class="row definition">
+                    <h3>
+                        Pure Angular control, without any jQuery reference
+                    </h3>
+                    <div class="text-idented"><i>The tree widget control is an angular UI component, independent from jQuery, which binds data and reacts to model changes.</i></div>
+                </div>
+                <div class="row definition">
+                    <h3>
+                        Features:
+                    </h3>
+                    <div class="col-xs-6">
+                        <div class="feature"><span class="glyphicon glyphicon-ok"></span><span>Reacts at model changes</span></div>
+                        <div class="feature"><span class="glyphicon glyphicon-ok"></span><span>Isolated scope</span></div>
+                        <div class="feature"><span class="glyphicon glyphicon-ok"></span><span>Easy customizable using css</span></div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div><span class="glyphicon glyphicon-ok"></span><span>Custom icons[or no icons at all]</span></div>
+                        <div><span class="glyphicon glyphicon-ok"></span><span>Multiple selection</span></div>
+                        <div><span class="glyphicon glyphicon-ok"></span><span>Disabled nodes</span></div>
+                    </div>
+                </div>
+                <div class="row definition">
+                    <h3>
+                        Instalation:
+                    </h3>
+                    <ol>
+                        <li>
+                            <a href="https://github.com/AlexSuleap/angular-tree-widget">Download</a> the project.
+                        </li>
+                        <li>
+                            Load the css file <code>angular-tree-widget.min.css</code> and the script file <code> angular-tree-widget.min.js</code> in your application.
+                        </li>
+                        <li>
+                            Add <code>'TreeWidget'</code> dependency to your application module.
+                        </li>
+                        <li>
+                            Do not forget to add references to angular, angular animate and angular recursion.
+                        </li>
+                    </ol>
+                </div>
+                <div class="row definition">
+                    <h3>
+                        Basic usage:
+                    </h3>
+                    <div>
+                        <p class="text-idented">
+                            Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
+                        </p>
+                        <pre>basicTree=[
+{name: "Node 1",children: [{name: "Node 1.1"},{name: "Node 1.2"}]},
+{name: "Node 2",children: [{name: "Node 2.1"},{name: "Node 2.2"}]},
+..........]</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="tree-container" ng-controller="TreeController">
+                    <tree nodes='treeNodes' options='options'></tree>
+                </div>
+            </div>
+        </div>
+        <div class="row definition" ng-controller="CodeController">
+            <h3>
+                Advance use - Custom Images
+            </h3>
+            <div>
+                <div class="col-sm-6">
+                    <div class="tree-container" ng-controller="TreeController" style="min-height:150px;">
+                        <tree nodes='customImagesTree'></tree>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <p>
+                        Sometimes changing the image of a certain node might be required.
+                    </p>
+                    <p>
+                        With the angular tree widget it is as easy as setting the value of a javascript object:
+                    </p>
+                    <p>
+                        <code>image: "/demo/app/images/pdf.png"</code>
+                    </p>
+                    <button class="btn btn-info pull-right" ng-click="toggleCode()"> Show Code</button>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="code-container">
+                    <pre ng-show="codeVisible"> $scope.customImagesTree = [{
+    name: "My Files",
+    image: "/demo/app/images/disk.png",
+    children: [
+        { name: "Pro AngularJS", image: "/demo/app/images/pdf.png" },
+        { name: "Presentation", image: "/demo/app/images/ppt.png" },
+        { name: "Requirements", image: "/demo/app/images/word.png" },
+        { name: "TODO list" }]
+}];</pre>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row definition">
+            Advance use;
+            custom image
+            disabled node
+
+            using options
+            hide icons
+            multiple selection
+            expand on click
+
+            change the tree
+
+            events:
+            node-changed
+            node-expanded
+            node-collapsed
+
+        </div>-->
+        <div class="row definition">
+            <h3>
+                Browser suport:
+            </h3>
+            <div>
+                <div class="text-center" style="margin-bottom:10px;">
+                    <img class="browser-img" src="app/images/browsers/chrome.png" />
+                    <img class="browser-img" src="app/images/browsers/firefox.png" />
+                    <img class="browser-img" src="app/images/browsers/safari.png" />
+                    <img class="browser-img" src="app/images/browsers/internet_explorer.png" />
+                </div>
+                <div class="text-center">
+                    <i>
+                        Was tested on IE11 and all modern browser. It might work on other<br>
+                        browser and/or older versions but it wasn't tested.
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/angular.min.js"></script>
+    <script src="/lib/angular-animate.min.js"></script>
+    <script src="/lib/angular-recursion.js"></script>
+
+    <script src="/dist/angular-tree-widget.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/controller.js"></script>
+
 </body>
 </html>
