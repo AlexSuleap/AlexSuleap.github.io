@@ -1,0 +1,83 @@
+﻿body {
+    background-color: #D4DEE4;
+}
+
+.page {
+    margin-top: 3em;
+    padding: 25px;
+    border-radius: 5px 5px 0px 0px;
+    background: white;
+}
+
+    .page .page-header {
+        color: #818778;
+        margin: 0px 0px 20px;
+    }
+
+    .page .definition .glyphicon {
+        font-size: 10px;
+        margin-right: 10px;
+    }
+
+    .page .presentation {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #EEE;
+    }
+
+.definition {
+    padding: 0 10px 10px 10px;
+}
+
+    .definition li {
+        padding-bottom: 5px;
+    }
+
+        .definition li:last-child {
+            padding-bottom: 0;
+        }
+
+.tree-container {
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.browser-img {
+    height: 40px;
+    width: 40px;
+}
+
+.feature {
+    padding-left: 3rem;
+}
+
+.code {
+    font-size: 12px;
+    font-family: Consolas,monaco,monospace;
+}
+
+.text-idented {
+    text-indent: 25px;
+}
+
+h3 {
+    margin-top: 1rem;
+}
+
+.code-container {
+    margin: 10px 0px 10px;
+}
+
+/*
+    --------------- Animate the code ------------------
+*/
+
+.code-container pre{
+    height: 190px;
+    transition: .5s linear all;
+    overflow: hidden;
+}
+
+.code-container pre.ng-hide {
+    height:0;
+}
