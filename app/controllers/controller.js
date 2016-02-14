@@ -17,7 +17,7 @@
                     },
                     {
                         name: "Jazz",
-                        image: "/app/images/Jazz.png",
+                        image: "/app/images/jazz.png",
                         children: [
                             { name: "Ray Charles - Hit the road Jack! ", image: "/app/images/music-20.png" },
                             { name: "Louis Prima - Just A Gigolo", image: "/app/images/music-20.png" }
