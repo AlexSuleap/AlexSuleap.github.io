@@ -116,6 +116,8 @@ treeApp.controller('InteractiveTree', ['$scope', function ($scope) {
         ];
     }
 
+    init();
+
     $scope.$on('selection-changed', function (e, node) {
         //node - selected node in tree
         $scope.selectedNode = node;

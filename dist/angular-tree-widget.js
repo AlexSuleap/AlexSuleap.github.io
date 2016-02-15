@@ -23,23 +23,22 @@
                                 if (nodes != undefined) {
                                     if (nodes.length > 0) {
                                         for (var i = 0; i < nodes.length ; i++) {
-
                                             var node = nodes[i];
+
+                                            //Generate node ids if no ids are defined
+                                            if (node.nodeId === undefined) {
+                                                node.nodeId = "tree-node-" + scope.count;
+                                                scope.count++;
+                                            }
+
+                                            //expanded all the nodes
+                                            if (node.expanded === undefined && node.children != undefined) {
+                                                node.expanded = true;
+                                            }
+                                            if (parent != undefined) {
+                                                node.parentId = parent.nodeId;
+                                            }
                                             if (scope.nodelist.indexOf(node) == -1) {
-                                                //Generate node ids if no ids are defined
-                                                if (node.nodeId === undefined) {
-                                                    node.nodeId = "tree-node-" + scope.count;
-                                                    scope.count++;
-                                                }
-
-                                                //expanded all the nodes
-                                                if (node.expanded === undefined && node.children != undefined) {
-                                                    node.expanded = true;
-                                                }
-                                                if (parent != undefined) {
-                                                    node.parentId = parent.nodeId;
-                                                }
-
                                                 scope.nodelist.push(node);
                                             }
                                             generateNodeList(node.children, node);
