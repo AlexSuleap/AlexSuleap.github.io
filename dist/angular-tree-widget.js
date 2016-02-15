@@ -90,6 +90,7 @@
                             if (scope.options.expandOnClick) {
                                 if (node.children != undefined) {
                                     node.expanded = !node.expanded;
+                                    scope.$emit('expanded-state-changed', node);
                                 }
                             }
                         }

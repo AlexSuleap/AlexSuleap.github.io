@@ -232,11 +232,24 @@ treeApp.controller('OptionsTreeController', ['$scope', function ($scope) {
 
         $scope.options = { multipleSelect: true, showIcon: false };
 
+        $scope.options1 = { showIcon: true, expandOnClick: true };
+
     }
     init();
 
     $scope.$on('selection-changed', function (e, nodes) {
-        $scope.selectedNodes = nodes;
+        if (nodes.length > 0) {
+            $scope.selectedNodes = nodes;
+        } else {
+            $scope.selectedNode = nodes;
+        }
+    });
+
+    $scope.$on('expanded-state-changed', function (e, node) {
+        // node - the node on which the expanded state changed
+        // to see the current state check the expanded property
+        $scope.exapndedNode = node;
+        //console.log(node.expanded);
     });
 }]);
 

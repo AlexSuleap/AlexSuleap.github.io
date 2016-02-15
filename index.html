@@ -1,17 +1,26 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Angular tree widget</title>
     <meta charset="utf-8" />
     <link href="/Content/bootstrap.css" rel="stylesheet" />
     <link href="/dist/angular-tree-widget.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
 </head>
-<body ng-app="treeApp">
-    <div class="container page">
-        <div class="page-header">
-            <h1><i>Angular tree widget</i></h1>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <h1 style="line-height: 2.5em; color:#fff">
+                    Angular tree widget
+                </h1>
+            </div>
+            <a href="https://github.com/AlexSuleap/angular-tree-widget">
+                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+            </a>
         </div>
+    </nav>
+    <div class="container page" ng-app="treeApp">
         <div class="row presentation" ng-controller="TreeController">
             <div class="col-sm-6 col-md-8">
                 <div class="row definition">
@@ -100,7 +109,7 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="code-container">
-                        <pre ng-show="codeVisible" class="code-example1">basicTree=[{
+                        <pre ng-show="codeVisible" class="code-example1">$scope.basicTree=[{
         name: "Node 1",
         children: [{
             name: "Node 1.1",
@@ -139,7 +148,7 @@
             </div>
             <div class="col-sm-12">
                 <div class="code-container">
-                    <pre ng-show="codeVisible" class="code-example1"> $scope.customImagesTree = [{
+                    <pre ng-show="codeVisible" class="code-example1"> $scope.customTree = [{
     name: "My Files",
     image: "/demo/app/images/disk.png",
     children: [
@@ -247,12 +256,12 @@
         <div class="row definition" ng-controller="CodeController">
             <div ng-controller="InteractiveTree">
                 <div class="col-sm-6">
-                    <div class="tree-container" style="min-height:180px;">
+                    <div class="tree-container" style="min-height:220px;">
                         <tree nodes='basicTree'></tree>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div style="min-height:180px;">
+                    <div style="min-height:220px;">
                         <h3>
                             Events
                         </h3>
@@ -274,7 +283,7 @@
                             </span>
                             <span ng-if="!exapndedNode">N/A</span>
                         </div>
-                        <button class="btn btn-info btn-show-right" ng-click="toggleCode()">Show Code</button>
+                        <button class="btn btn-info btn-show-left" ng-click="toggleCode()">Show Code</button>
                     </div>
                 </div>
             </div>
@@ -333,15 +342,40 @@ $scope.$on('expanded-state-changed', function (e, node) {
             </div>
         </div>
         <hr />
-        <!--<div class="row definition">
-            Advance use;
-
-            using options           
-            expand on click
-
-        </div>-->
-
+        <div class="row definition">
+            <div ng-controller="OptionsTreeController">
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:180px;">
+                        <tree nodes='treeNodes' options="options1"></tree>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="min-height:180px;">
+                        <h3>
+                            Advance use - <i>Expand on label click</i>
+                        </h3>
+                        <p class="text-idented">
+                            To enable the label click exapand/collapse set the <code>options.multipleSelect=true</code>
+                        </p>
+                        <div>
+                            <label>Selected node: </label>
+                            <span ng-if="selectedNode" ng-bind="selectedNode.name"></span><span ng-if="!selectedNode">N/A</span>
+                        </div>
+                        <div>
+                            <label>Last expanded node: </label>
+                            <span ng-if="exapndedNode">
+                                <span ng-bind="exapndedNode.name"></span> - <span ng-if="exapndedNode.expanded">expanded</span><span ng-if="!exapndedNode.expanded">collapsed</span>
+                            </span>
+                            <span ng-if="!exapndedNode">N/A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <footer class="panel-footer">
+        <div class="container"><p class="text-right">© 2016 Alex Suleap. All rights reserved.</p></div>
+    </footer>
     <script src="/lib/angular.min.js"></script>
     <script src="/lib/angular-animate.min.js"></script>
     <script src="/lib/angular-recursion.js"></script>

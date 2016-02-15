@@ -3,26 +3,30 @@
 }
 
 .page {
-    margin-top: 3em;
     padding: 25px;
-    border-radius: 5px 5px 0px 0px;
     background: white;
 }
 
-    .page .page-header {
-        color: #818778;
-        margin: 0px 0px 20px;
-    }
+.navbar {
+    min-height: 135px;
+    border-radius: 0;
+    margin-bottom: 0;
+}
 
-    .page .definition .glyphicon {
-        font-size: 10px;
-        margin-right: 10px;
-    }
+.page .page-header {
+    color: #818778;
+    margin: 0px 0px 20px;
+}
 
-    .page .presentation {
-        margin-bottom: 20px;
-        border-bottom: 1px solid #EEE;
-    }
+.page .definition .glyphicon {
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.page .presentation {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #EEE;
+}
 
 .definition {
     padding: 0 10px 10px 10px;
