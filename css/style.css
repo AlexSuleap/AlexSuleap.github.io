@@ -68,16 +68,35 @@ h3 {
     margin: 10px 0px 10px;
 }
 
+
+.btn-show-right {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.btn-show-left {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
 /*
     --------------- Animate the code ------------------
 */
 
-.code-container pre{
-    height: 190px;
+.code-container pre {
     transition: .5s linear all;
     overflow: hidden;
 }
 
-.code-container pre.ng-hide {
-    height:0;
+    .code-container pre.ng-hide {
+        height: 0;
+    }
+
+.code-example1 {
+    height: 190px;
+}
+
+.code-example2 {
+    height: 300px;
 }

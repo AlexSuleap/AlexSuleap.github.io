@@ -8,11 +8,11 @@
     <link href="/css/style.css" rel="stylesheet" />
 </head>
 <body ng-app="treeApp">
-    <div class="container page" ng-controller="TreeController">
+    <div class="container page">
         <div class="page-header">
             <h1><i>Angular tree widget</i></h1>
         </div>
-        <div class="row presentation">
+        <div class="row presentation" ng-controller="TreeController">
             <div class="col-sm-6 col-md-8">
                 <div class="row definition">
                     <h3>
@@ -80,54 +80,66 @@
                 </div>
             </div>
         </div>
-        <div class="row definition">
-            <h3>
-                Basic usage:
-            </h3>
-            <div class="col-sm-6 col-md-8">
-                <p class="text-idented">
-                    Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
-                </p>
-                <pre>basicTree=[
-    {name: "Node 1",children: [{
-        name: "Node 1.1", 
-        children:[{name:"Node 1.1.1"},{name: "Node 1.1.2"}]}]
-    },
-    {name: "Node 2",children: [{name: "Node 2.1"},{name: "Node 2.2"}]}]</pre>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="tree-container" style="min-height:150px;">
-                    <tree nodes='basicTree'></tree>
+        <div class="row definition" ng-controller="CodeController">
+            <div ng-controller="TreeController">
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:200px;">
+                        <tree nodes='basicTree'></tree>
+                    </div>
                 </div>
+                <div class="col-sm-6">
+                    <div style="min-height:190px">
+                        <h3>
+                            Basic usage:
+                        </h3>
+                        <p class="text-idented">
+                            Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
+                        </p>
+                        <button class="btn btn-info pull-right btn-show-left" ng-click="toggleCode()">Show Code</button>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="code-container">
+                        <pre ng-show="codeVisible" class="code-example1">basicTree=[{
+        name: "Node 1",
+        children: [{
+            name: "Node 1.1",
+            children:[{name:"Node 1.1.1"},{name: "Node 1.1.2"}]
+        }]},{
+        name: "Node 2",
+        children: [{name: "Node 2.1"},{name: "Node 2.2"}]
+    }]</pre>
+                    </div>
+                </div>
+
             </div>
         </div>
         <hr />
         <div class="row definition" ng-controller="CodeController">
-            <h3>
-                Advance use - Custom Images
-            </h3>
-            <div>
+            <div ng-controller="TreeController">
                 <div class="col-sm-6">
-                    <div class="tree-container" style="min-height:130px;">
-                        <tree nodes='customImagesTree'></tree>
+                    <div style="min-height:150px">
+                        <h3>
+                            Custom Images
+                        </h3>
+                        <p class="text-idented">
+                            Sometimes changing the image of a certain node might be required. With the angular tree widget it is as easy as setting the value of a javascript object:
+                        </p>
+                        <p>
+                            <code>image: "/demo/app/images/pdf.png"</code>
+                        </p>
+                        <button class="btn btn-info pull-right btn-show-right" ng-click="toggleCode()">Show Code</button>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <p>
-                        Sometimes changing the image of a certain node might be required.
-                    </p>
-                    <p>
-                        With the angular tree widget it is as easy as setting the value of a javascript object:
-                    </p>
-                    <p>
-                        <code>image: "/demo/app/images/pdf.png"</code>
-                    </p>
-                    <button class="btn btn-info pull-right" ng-click="toggleCode()"> Show Code</button>
+                    <div class="tree-container" style="min-height:160px;">
+                        <tree nodes='customImagesTree'></tree>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12">
                 <div class="code-container">
-                    <pre ng-show="codeVisible"> $scope.customImagesTree = [{
+                    <pre ng-show="codeVisible" class="code-example1"> $scope.customImagesTree = [{
     name: "My Files",
     image: "/demo/app/images/disk.png",
     children: [
@@ -139,22 +151,193 @@
                 </div>
             </div>
         </div>
+        <hr />
+        <div class="row definition" ng-controller="CodeController">
+            <div ng-controller="TreeController">
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:200px;">
+                        <tree nodes='disabledNodes'></tree>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="min-height:190px;">
+                        <h3>
+                            Disabled Nodes
+                        </h3>
+                        <p class="text-idented">
+                            In case that you want to prevent the node selection, just set the disable property of the model:
+                            <code>disabled: true</code>
+                        </p>
+                        <button class="btn btn-info btn-show-left" ng-click="toggleCode()">Show Code</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="code-container">
+                    <pre ng-show="codeVisible" class="code-example2">$scope.disabledNodes = [{
+    name: "My Files", disabled: true,
+    children: [{
+        name: "Angular books",
+        children: [
+            { name: "Pro AngularJS", image: "/app/images/pdf.png" },
+            { name: "AngularJS: Up and Running", image: "/app/images/pdf.png" }, ]
+        }, {
+            name: "Work", disabled: true,
+            children: [
+                { name: "Presentation", image: "/app/images/ppt.png", disabled: true },
+                { name: "Requirements", image: "/app/images/word.png" },
+                { name: "TODO list", disabled: true }]
+    }]
+}];</pre>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row definition">
+            <div ng-controller="UpdatableTreeController">
+                <div class="col-sm-6">
+                    <div style="min-height:180px;">
+                        <h3>
+                            Changing the tree
+                        </h3>
+                        <p class="text-idented">
+                            With each model update (add/remove/rename node) the tree will automaticlay refresh itself.
+                        </p>
+                        <div>
+                            <p>
+                                Add new node under selected node<button class="btn btn-success btn-xs pull-right" ng-click="addNode()">Add</button>
+                            </p>
+                            <p>
+                                Remove selected node<button class="btn btn-danger btn-xs pull-right" ng-click="removeNode()">Remove</button>
+                            </p>
+                            <p>
+                                Rename selected node<button class="btn btn-info btn-xs pull-right" ng-click="renameNode()">Rename</button>
+                            </p>
+                        </div>
+                        <!--<button class="btn btn-info btn-show-right" ng-click="toggleCode()">Show Code</button>-->
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:180px;">
+                        <tree nodes='basicTree'></tree>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="code-container">
+                    <pre ng-show="codeVisible" class="code-example2">$scope.disabledNodes = [{
+    name: "My Files", disabled: true,
+    children: [{
+        name: "Angular books",
+        children: [
+            { name: "Pro AngularJS", image: "/app/images/pdf.png" },
+            { name: "AngularJS: Up and Running", image: "/app/images/pdf.png" }, ]
+        }, {
+            name: "Work", disabled: true,
+            children: [
+                { name: "Presentation", image: "/app/images/ppt.png", disabled: true },
+                { name: "Requirements", image: "/app/images/word.png" },
+                { name: "TODO list", disabled: true }]
+    }]
+}];</pre>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row definition" ng-controller="CodeController">
+            <div ng-controller="InteractiveTree">
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:180px;">
+                        <tree nodes='basicTree'></tree>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="min-height:180px;">
+                        <h3>
+                            Events
+                        </h3>
+                        <p class="text-idented">
+                            The control supports events two events:
+                            <ul>
+                                <li><code>selection-changed</code> - click on one node</li>
+                                <li><code>expanded-state-changed</code> - click on the expand/collapse arrow</li>
+                            </ul>
+                        </p>
+                        <div>
+                            <label>Selected node: </label>
+                            <span ng-if="selectedNode" ng-bind="selectedNode.name"></span><span ng-if="!selectedNode">N/A</span>
+                        </div>
+                        <div>
+                            <label>Last expanded node: </label>
+                            <span ng-if="exapndedNode">
+                                <span ng-bind="exapndedNode.name"></span> - <span ng-if="exapndedNode.expanded">expanded</span><span ng-if="!exapndedNode.expanded">collapsed</span>
+                            </span>
+                            <span ng-if="!exapndedNode">N/A</span>
+                        </div>
+                        <button class="btn btn-info btn-show-right" ng-click="toggleCode()">Show Code</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="code-container">
+                    <pre ng-show="codeVisible" class="code-example1">
+$scope.$on('selection-changed', function (e, node) {
+    //node - selected node in tree
+    $scope.selectedNode = node;
+});
+$scope.$on('expanded-state-changed', function (e, node) {
+    // node - the node on which the expanded state changed
+    // to see the current state check the expanded property
+    //console.log(node.expanded);
+    $scope.exapndedNode = node;    
+});
+</pre>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row definition">
+            <div ng-controller="OptionsTreeController">
+                <h3>
+                    Advance use - <i>Multiple select</i> and <i>No icons</i>
+                </h3>
+                <div class="col-sm-6">
+                    <div style="min-height:180px;">
+                        <p class="text-idented">
+                            To enable the advance mode, you have to use the tree option. <code>&lt;tree nodes='treeNodes' options='options'&gt;&lt;/tree&gt;</code>
+                        </p>
+                        <p>
+                            <ul>
+                                <li>To enable multiple selection set <code>options.multipleSelect=true</code></li>
+                                <li>To remove the icons set <code>options.showIcon=false</code></li>
+                            </ul>
+                        </p>
+                        <p>
+                            Selected nodes:
+                        </p>
+                        <div ng-if="selectedNodes">
+                            <p ng-repeat="node in selectedNodes" class="text-idented">
+                                <span>{{node.name}}</span>
+                            </p>
+                        </div>
+                        <div ng-if="!selectedNodes || selectedNodes.length==0">
+                            <p class="text-idented">N/A</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="tree-container" style="min-height:180px;">
+                        <tree nodes='treeNodes' options="options"></tree>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
         <!--<div class="row definition">
             Advance use;
-            custom image
-            disabled node
 
-            using options
-            hide icons
-            multiple selection
+            using options           
             expand on click
-
-            change the tree
-
-            events:
-            node-changed
-            node-expanded
-            node-collapsed
 
         </div>-->
 
