@@ -75,13 +75,13 @@ h3 {
 
 .btn-show-right {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     right: 20px;
 }
 
 .btn-show-left {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 20px;
 }
 
