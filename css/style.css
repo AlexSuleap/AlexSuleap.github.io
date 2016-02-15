@@ -84,6 +84,14 @@ h3 {
     bottom: 10px;
     left: 20px;
 }
+
+.info-container {
+    padding: 0 10px 10px 10px;
+}
+
+.info-container h3 {
+    margin-top: 0;
+}
 /*
     --------------- Animate the code ------------------
 */

@@ -97,14 +97,16 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div style="min-height:190px">
+                    <div  class="info-container" style="min-height:200px">
                         <h3>
                             Basic usage:
                         </h3>
                         <p class="text-idented">
                             Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
                         </p>
-                        <button class="btn btn-info pull-right btn-show-left" ng-click="toggleCode()">Show Code</button>
+                        <div class="btn-show-left">
+                            <button class="btn btn-info" ng-click="toggleCode()">Show Code</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -127,7 +129,7 @@
         <div class="row definition" ng-controller="CodeController">
             <div ng-controller="TreeController">
                 <div class="col-sm-6">
-                    <div style="min-height:150px">
+                    <div class="info-container" style="min-height:160px">
                         <h3>
                             Custom Images
                         </h3>
@@ -164,12 +166,12 @@
         <div class="row definition" ng-controller="CodeController">
             <div ng-controller="TreeController">
                 <div class="col-sm-6">
-                    <div class="tree-container" style="min-height:200px;">
+                    <div class="tree-container" style="min-height:210px;">
                         <tree nodes='disabledNodes'></tree>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div style="min-height:190px;">
+                    <div class="info-container" style="min-height:210px;">
                         <h3>
                             Disabled Nodes
                         </h3>
@@ -205,7 +207,7 @@
         <div class="row definition">
             <div ng-controller="UpdatableTreeController">
                 <div class="col-sm-6">
-                    <div style="min-height:180px;">
+                    <div class="info-container" style="min-height:180px;">
                         <h3>
                             Changing the tree
                         </h3>
@@ -261,7 +263,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div style="min-height:220px;">
+                    <div class="info-container" style="min-height:220px;">
                         <h3>
                             Events
                         </h3>
@@ -311,7 +313,7 @@ $scope.$on('expanded-state-changed', function (e, node) {
                     Advance use - <i>Multiple select</i> and <i>No icons</i>
                 </h3>
                 <div class="col-sm-6">
-                    <div style="min-height:180px;">
+                    <div class="info-container" style="min-height:180px;">
                         <p class="text-idented">
                             To enable the advance mode, you have to use the tree option. <code>&lt;tree nodes='treeNodes' options='options'&gt;&lt;/tree&gt;</code>
                         </p>
@@ -350,7 +352,7 @@ $scope.$on('expanded-state-changed', function (e, node) {
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div style="min-height:180px;">
+                    <div class="info-container" style="min-height:180px;">
                         <h3>
                             Advance use - <i>Expand on label click</i>
                         </h3>
