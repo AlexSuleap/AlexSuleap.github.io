@@ -73,10 +73,8 @@
             ]
         }];
 
-        $scope.basicTree = [
-{ name: "Node 1", children: [{ name: "Node 1.1" }, { name: "Node 1.2" }] },
-{ name: "Node 2", children: [{ name: "Node 2.1" }, { name: "Node 2.2" }] },
-        ]
+        $scope.basicTree = [{ name: "Node 1", children: [{ name: "Node 1.1", children: [{ name: "Node 1.1.1" }, { name: "Node 1.1.2" }] }] },
+    { name: "Node 2", children: [{ name: "Node 2.1" }, { name: "Node 2.2" }] }]
 
         $scope.customImagesTree = [{
             name: "My Files", image: "/app/images/disk.png",

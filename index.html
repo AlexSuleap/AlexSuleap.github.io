@@ -8,7 +8,7 @@
     <link href="/css/style.css" rel="stylesheet" />
 </head>
 <body ng-app="treeApp">
-    <div class="container page">
+    <div class="container page" ng-controller="TreeController">
         <div class="page-header">
             <h1><i>Angular tree widget</i></h1>
         </div>
@@ -18,7 +18,7 @@
                     <h3>
                         Pure Angular control, without any jQuery reference
                     </h3>
-                    <div class="text-idented"><i>The tree widget control is an angular UI component, independent from jQuery, which binds data and reacts to model changes.</i></div>
+                    <div class="text-idented"><i>The tree widget control is an angular UI component, independent from jQuery, which binds data and reacts to model changes. The control is absolutely free, open source and distributed under the <a href="https://github.com/AlexSuleap/angular-tree-widget/blob/master/LICENSE">MIT license</a></i></div>
                 </div>
                 <div class="row definition">
                     <h3>
@@ -56,32 +56,59 @@
                 </div>
                 <div class="row definition">
                     <h3>
-                        Basic usage:
+                        Browser suport:
                     </h3>
                     <div>
-                        <p class="text-idented">
-                            Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
-                        </p>
-                        <pre>basicTree=[
-{name: "Node 1",children: [{name: "Node 1.1"},{name: "Node 1.2"}]},
-{name: "Node 2",children: [{name: "Node 2.1"},{name: "Node 2.2"}]},
-..........]</pre>
+                        <div class="text-center" style="margin:10px 0 10px">
+                            <img class="browser-img" src="app/images/browsers/chrome.png" />
+                            <img class="browser-img" src="app/images/browsers/firefox.png" />
+                            <img class="browser-img" src="app/images/browsers/safari.png" />
+                            <img class="browser-img" src="app/images/browsers/internet_explorer.png" />
+                        </div>
+                        <div class="text-center">
+                            <i>
+                                Was tested on IE11 and all modern browser. It might work on other<br>
+                                browser and/or older versions but it wasn't tested.
+                            </i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
-                <div class="tree-container" ng-controller="TreeController">
+                <div class="tree-container">
                     <tree nodes='treeNodes' options='options'></tree>
                 </div>
             </div>
         </div>
+        <div class="row definition">
+            <h3>
+                Basic usage:
+            </h3>
+            <div class="col-sm-6 col-md-8">
+                <p class="text-idented">
+                    Just add the following tag into your page: <code>&lt;tree nodes='basicTree'&gt;&lt;/tree&gt;</code>, and after that the tree will react to any model changes.
+                </p>
+                <pre>basicTree=[
+    {name: "Node 1",children: [{
+        name: "Node 1.1", 
+        children:[{name:"Node 1.1.1"},{name: "Node 1.1.2"}]}]
+    },
+    {name: "Node 2",children: [{name: "Node 2.1"},{name: "Node 2.2"}]}]</pre>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="tree-container" style="min-height:150px;">
+                    <tree nodes='basicTree'></tree>
+                </div>
+            </div>
+        </div>
+        <hr />
         <div class="row definition" ng-controller="CodeController">
             <h3>
                 Advance use - Custom Images
             </h3>
             <div>
                 <div class="col-sm-6">
-                    <div class="tree-container" ng-controller="TreeController" style="min-height:150px;">
+                    <div class="tree-container" style="min-height:130px;">
                         <tree nodes='customImagesTree'></tree>
                     </div>
                 </div>
@@ -130,35 +157,13 @@
             node-collapsed
 
         </div>-->
-        <div class="row definition">
-            <h3>
-                Browser suport:
-            </h3>
-            <div>
-                <div class="text-center" style="margin-bottom:10px;">
-                    <img class="browser-img" src="app/images/browsers/chrome.png" />
-                    <img class="browser-img" src="app/images/browsers/firefox.png" />
-                    <img class="browser-img" src="app/images/browsers/safari.png" />
-                    <img class="browser-img" src="app/images/browsers/internet_explorer.png" />
-                </div>
-                <div class="text-center">
-                    <i>
-                        Was tested on IE11 and all modern browser. It might work on other<br>
-                        browser and/or older versions but it wasn't tested.
-                    </i>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    </div>
     <script src="/lib/angular.min.js"></script>
     <script src="/lib/angular-animate.min.js"></script>
     <script src="/lib/angular-recursion.js"></script>
-
     <script src="/dist/angular-tree-widget.js"></script>
-
     <script src="/app/app.js"></script>
     <script src="/app/controllers/controller.js"></script>
-
 </body>
 </html>
