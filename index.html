@@ -3,6 +3,7 @@
 <head>
     <title>Angular tree widget</title>
     <meta charset="utf-8" />
+	<meta name="description" content="Angular tree control, which does not require jqUery. The control supports custom images, disabled nodes, multiple select and reacts to model change.">
     <link href="/Content/bootstrap.css" rel="stylesheet" />
     <link href="/dist/angular-tree-widget.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
@@ -25,9 +26,9 @@
             <div class="col-sm-6 col-md-8">
                 <div class="row definition">
                     <h3>
-                        Pure Angular control, without any jQuery reference
+                         Pure Angular control, without any jQuery reference.
                     </h3>
-                    <div class="text-idented"><i>The tree widget control is an angular UI component, independent from jQuery, which binds data and reacts to model changes. The control is absolutely free, open source and distributed under the <a href="https://github.com/AlexSuleap/angular-tree-widget/blob/master/LICENSE">MIT license</a></i></div>
+                    <div class="text-idented"><i>The tree widget control is an angular UI component, independent from jQuery, which binds data and reacts to model changes. The control is absolutely free, open source and distributed under the <a href="https://github.com/AlexSuleap/angular-tree-widget/blob/master/LICENSE">MIT license</a>.</i></div>
                 </div>
                 <div class="row definition">
                     <h3>
@@ -46,20 +47,23 @@
                 </div>
                 <div class="row definition">
                     <h3>
-                        Instalation:
+                        Installation:
                     </h3>
                     <ol>
                         <li>
                             <a href="https://github.com/AlexSuleap/angular-tree-widget">Download</a> the project.
                         </li>
                         <li>
-                            Load the css file <code>angular-tree-widget.min.css</code> and the script file <code> angular-tree-widget.min.js</code> in your application.
-                        </li>
+                            Load the style sheet file <code>angular-tree-widget.min.css</code> and the script file <code> angular-tree-widget.min.js</code> in your application.
+                        </li>						 
                         <li>
                             Add <code>'TreeWidget'</code> dependency to your application module.
                         </li>
+						<li>
+                            Add data for the tree <code>$scope.treeNodes =[{....}]</code>, and add <code>tree</code> tag to your html page.
+                        </li>
                         <li>
-                            Do not forget to add references to angular, angular animate and angular recursion.
+                            Do not forget to add references to <a href="http://www.angularjs.org">AngularJS</a>, <a href="https://docs.angularjs.org/guide/animations">AngularJS Animate</a> and <a href="https://github.com/marklagendijk/angular-recursion">Angular Recursion</a>.
                         </li>
                     </ol>
                 </div>
@@ -134,7 +138,7 @@
                             Custom Images
                         </h3>
                         <p class="text-idented">
-                            Sometimes changing the image of a certain node might be required. With the angular tree widget it is as easy as setting the value of a javascript object:
+                            Sometimes changing the image of a certain node might be required. With the angular tree widget it is as easy as setting the value of a JavaScript object:
                         </p>
                         <p>
                             <code>image: "/demo/app/images/pdf.png"</code>
@@ -177,7 +181,7 @@
                         </h3>
                         <p class="text-idented">
                             In case that you want to prevent the node selection, just set the disable property of the model:
-                            <code>disabled: true</code>
+                            <code>disabled: true</code>.
                         </p>
                         <button class="btn btn-info btn-show-left" ng-click="toggleCode()">Show Code</button>
                     </div>
@@ -212,20 +216,19 @@
                             Changing the tree
                         </h3>
                         <p class="text-idented">
-                            With each model update (add/remove/rename node) the tree will automaticlay refresh itself.
+                            With each model update (add/remove/rename node) the tree will automatically refresh itself.
                         </p>
                         <div>
                             <p>
-                                Add new node under selected node<button class="btn btn-success btn-xs pull-right" ng-click="addNode()">Add</button>
+                                Add new node under selected node:<button class="btn btn-success btn-xs pull-right" ng-click="addNode()">Add</button>
                             </p>
                             <p>
-                                Remove selected node<button class="btn btn-danger btn-xs pull-right" ng-click="removeNode()">Remove</button>
+                                Remove selected node:<button class="btn btn-danger btn-xs pull-right" ng-click="removeNode()">Remove</button>
                             </p>
                             <p>
-                                Rename selected node<button class="btn btn-info btn-xs pull-right" ng-click="renameNode()">Rename</button>
+                                Rename selected node:<button class="btn btn-info btn-xs pull-right" ng-click="renameNode()">Rename</button>
                             </p>
-                        </div>
-                        <!--<button class="btn btn-info btn-show-right" ng-click="toggleCode()">Show Code</button>-->
+                        </div>                        
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -270,8 +273,8 @@
                         <p class="text-idented">
                             The control supports events two events:
                             <ul>
-                                <li><code>selection-changed</code> - click on one node</li>
-                                <li><code>expanded-state-changed</code> - click on the expand/collapse arrow</li>
+                                <li><code>selection-changed</code> - click on one node.</li>
+                                <li><code>expanded-state-changed</code> - click on the expand/collapse arrow.</li>
                             </ul>
                         </p>
                         <div>
@@ -319,8 +322,8 @@ $scope.$on('expanded-state-changed', function (e, node) {
                         </p>
                         <p>
                             <ul>
-                                <li>To enable multiple selection set <code>options.multipleSelect=true</code></li>
-                                <li>To remove the icons set <code>options.showIcon=false</code></li>
+                                <li>To enable multiple selection set <code>options.multipleSelect=true</code>.</li>
+                                <li>To remove the icons set <code>options.showIcon=false</code>.</li>
                             </ul>
                         </p>
                         <p>
@@ -357,7 +360,7 @@ $scope.$on('expanded-state-changed', function (e, node) {
                             Advance use - <i>Expand on label click</i>
                         </h3>
                         <p class="text-idented">
-                            To enable the label click exapand/collapse set the <code>options.expandOnClick=true</code>
+                            To enable the label click expand/collapse set the <code>options.expandOnClick=true</code>.
                         </p>
                         <div>
                             <label>Selected node: </label>
